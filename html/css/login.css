@@ -1,0 +1,164 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  display: flex;
+  background-color: rgba(91, 112, 131, 0.4);
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.card {
+  width: 40%;
+  height: 80%;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 16px;
+  background-color: black;
+}
+
+.social{
+    width: 60%;
+    height: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.social h2 {
+  color: rgb(217, 217, 217);
+}
+
+.social-button{
+  border:1px solid rgb(218, 220, 224);
+  background:rgb(255,255,255);
+  width: 100%;
+  padding:10px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  cursor:pointer;
+}
+
+.or-container{
+    display: flex;
+    width: 100%;
+    color:#444;
+    margin-top: 8px;
+    align-items: center;
+}
+
+.or-text{
+    display: flex;
+    justify-content: center;
+    width: 10%;
+}
+
+.or-left{
+    width: 50%;
+    border-top:1px solid #444;
+
+}
+
+.or-right{
+    width: 50%;
+    border-top:1px solid #444;
+}
+
+.id-input{
+    width: 93%;
+    border:1px solid rgb(118,118,118);
+    color:rgb(217,217,217);
+    font-weight: 600;
+    border-radius: 8px;
+    outline: none;
+    padding:14px;
+    background-color: rgb(0,0,0);
+    margin-top:20px;
+}
+
+.pw-input{
+    width: 93%;
+    border:1px solid rgb(118,118,118);
+    color:rgb(217,217,217);
+    font-weight: 600;
+    border-radius: 8px;
+    outline: none;
+    padding:14px;
+    background-color: rgb(0,0,0);
+    margin-top:20px;
+}
+
+.login-button{
+    border:1px solid rgb(218, 220, 224);
+    background:rgb(255,255,255);
+    width: 96%;
+    padding:10px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    cursor:pointer;
+}
+
+.lost-button{
+    border:1px solid rgb(83, 100, 113);
+    background-color: rgb(0,0,0);
+    color:rgb(217,217,217);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    width: 96%;
+    padding:10px;
+    cursor:pointer;
+}
+
+.sign-container{
+    margin-top: 30px;
+    display: flex;
+}
+
+.sign-text{
+    color:rgb(110,118,125);
+    margin-right: 4px;
+}
+
+.sign-link{
+    color:rgb(29,155,240);
+}
+
+.svg-logo {
+  color: rgb(217, 217, 217);
+  height: 1.75em;
+  fill: currentColor;
+}
+
+.svg-social {
+    color: rgb(217, 217, 217);
+    height: 1.1em;
+    fill: currentColor;
+    margin-right:8px;
+}
+
+.svg-apple {
+    color: black;
+    height: 1.2em;
+    fill: currentColor;
+    margin-right:8px;
+}

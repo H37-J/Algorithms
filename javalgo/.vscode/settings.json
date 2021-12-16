@@ -1,0 +1,8 @@
+{
+    "java.project.sourcePaths": [
+        "utils",
+        "level2",
+        "level1",
+        "level3"
+    ]
+}

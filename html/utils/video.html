@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <script type="module">
+        window.onload = function () {
+            let video = document.getElementById('video');
+            
+            console.log(video);
+
+            var supposedCurrentTime = 0;
+            video.addEventListener('timeupdate', function () {
+                if (!video.seeking) {
+                    supposedCurrentTime = video.currentTime;
+                }
+            });
+
+            video.addEventListener('seeking', function () {
+                var delta = video.currentTime - supposedCurrentTime;
+                if (Math.abs(delta) > 0.01) {
+                    video.currentTime = supposedCurrentTime;
+                }
+            });
+
+
+        }
+
+    </script>
+
+    <style>
+        video::-webkit-media-controls-overlay-play-button {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <video autoplay="autoplay" muted controls id="video"
+        src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"></video>
+
+</body>
+
+</html>
