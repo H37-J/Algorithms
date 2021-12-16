@@ -1,56 +1,56 @@
 html {
-  height: 100%;
-  width: 100%;
+    height: 100%;
+    width: 100%;
 }
 
 body {
-  margin: 0;
-  height: 100%;
-  width: 100%;
-  background-color: black;
-  font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .container {
-  display: flex;
-  background-color: rgba(91, 112, 131, 0.4);
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+    display: flex;
+    background-color: rgba(91, 112, 131, 0.4);
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 .card {
-  width: 40%;
-  height: 80%;
-  text-align: center;
-  border: 1px solid black;
-  border-radius: 16px;
-  background-color: black;
+    width: 40%;
+    height: 80%;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 16px;
+    background-color: black;
 }
 
 .sign-container {
-  width: 90%;
-  height: 70%;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left;
+    width: 90%;
+    height: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
 }
 
 .sign-container h2 {
-  color: rgb(217, 217, 217);
+    color: rgb(217, 217, 217);
 }
 
 .social-button {
-  border: 1px solid rgb(218, 220, 224);
-  background: rgb(255, 255, 255);
-  width: 100%;
-  padding: 10px;
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  cursor: pointer;
+    border: 1px solid rgb(218, 220, 224);
+    background: rgb(255, 255, 255);
+    width: 100%;
+    padding: 10px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .name-input {
@@ -63,20 +63,20 @@ body {
     border-radius: 4px;
     background-color: rgb(0, 0, 0);
     margin-top: 20px;
-    font-size: 24px;;
-  }
+    font-size: 24px;
+}
 
 .id-input {
-  width: 90%;
-  border: 1px solid rgb(51, 50, 50);
-  color: rgb(110, 118, 125);
-  font-weight: 400;
-  outline: none;
-  padding: 16px;
-  border-radius: 4px;
-  background-color: rgb(0, 0, 0);
-  margin-top: 20px;
-  font-size: 24px;;
+    width: 90%;
+    border: 1px solid rgb(51, 50, 50);
+    color: rgb(110, 118, 125);
+    font-weight: 400;
+    outline: none;
+    padding: 16px;
+    border-radius: 4px;
+    background-color: rgb(0, 0, 0);
+    margin-top: 20px;
+    font-size: 24px;
 }
 
 .pw-input {
@@ -89,10 +89,10 @@ body {
     border-radius: 4px;
     background-color: rgb(0, 0, 0);
     margin-top: 20px;
-    font-size: 24px;;
+    font-size: 24px;
 }
 
-.birth-container{
+.birth-container {
     width: 100%;
     display: flex;
     margin-top: 20px;
@@ -100,7 +100,7 @@ body {
     justify-content: space-between;
 }
 
-.year-input{
+.year-input {
     width: 30%;
     border: 1px solid rgb(51, 50, 50);
     color: rgb(110, 118, 125);
@@ -113,7 +113,7 @@ body {
     font-size: 24px;
 }
 
-.month-input{
+.month-input {
     width: 30%;
     border: 1px solid rgb(51, 50, 50);
     color: rgb(110, 118, 125);
@@ -126,7 +126,7 @@ body {
     font-size: 24px;
 }
 
-.day-input{
+.day-input {
     width: 30%;
     border: 1px solid rgb(51, 50, 50);
     color: rgb(110, 118, 125);
@@ -140,18 +140,18 @@ body {
 }
 
 .sign-button {
-  border: 1px solid rgba(0, 0, 0,0);
-  background: rgb(239, 243, 244);
-  width: 93%;
-  padding: 13px;
-  border-radius: 16px;
-  display: flex;
-  font-size:16px;
-  align-items: center;
-  justify-content: center;
-  margin-top: 40px;
-  cursor: pointer;
-  font-weight: 600;
+    border: 1px solid rgba(0, 0, 0, 0);
+    background: rgb(239, 243, 244);
+    width: 93%;
+    padding: 13px;
+    border-radius: 16px;
+    display: flex;
+    font-size: 16px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    cursor: pointer;
+    font-weight: 600;
 }
 
 .svg-logo {
@@ -160,16 +160,16 @@ body {
     fill: currentColor;
 }
 
-.login-container{
+.login-container {
     margin-top: 30px;
     display: flex;
 }
 
-.login-text{
-    color:rgb(110,118,125);
+.login-text {
+    color: rgb(110, 118, 125);
     margin-right: 4px;
 }
 
-.login-link{
-    color:rgb(29,155,240);
+.login-link {
+    color: rgb(29, 155, 240);
 }

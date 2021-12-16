@@ -1,0 +1,75 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.side-left {
+    position: fixed;
+    top: 0;
+    width: 20%;
+    border-right: 1px #444 solid;
+    height: 100%;
+    padding-top: 3px;
+}
+
+.side-menu {
+    overflow: hidden;
+    padding: 20px;
+}
+
+.menu {
+    padding: 14px;
+}
+
+.side-menu a {
+    text-decoration: none;
+    padding-bottom: 22px;
+    font-weight: 700;
+    color: rgb(217, 217, 217);
+    display: flex;
+}
+
+.svg {
+    color: rgb(217, 217, 217);
+    height: 1.75em;
+    fill: currentColor;
+    width: 50%;
+    margin-right: 12px;
+    justify-content: right;
+}
+
+.svg-twit-container {
+    width: 55%;
+    display: flex;
+    justify-content: center;
+}
+
+.svg-twit-box {
+    background-color: rgb(29, 155, 240);
+    border-radius: 9999px;
+    display: flex;
+    width: 34px;
+    height: 34px;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.svg-twit {
+    color: rgb(217, 217, 217);
+    height: 1.35em;
+    fill: currentColor;
+}
+
+.menu-name {
+    font-size: 18px;
+    font-weight: 700;
+}
