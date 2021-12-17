@@ -3,7 +3,6 @@
 <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
 
 <head>
-    <link rel="stylesheet" href="/bootstrap-5.0.2-dist/css/bootstrap.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
@@ -50,16 +49,101 @@
         }
 
         .all {
-            padding: 50px 20px 100px;
+            padding: 250px 20px 100px;
+        }
+
+        .trand-container {
+            border-radius: 16px;
+            background-color: rgba(255, 255, 255, 0.5);
+            color: white;
+            border: 1px solid #ddd;
+            margin-bottom: 100px;
+            margin-right: 30px;
+            position: absolute;
+            right: 0;
+            width: 304px;
+            height: 350px;
+            padding-top: 2px;
+        }
+
+        .trand-content {
+            width: 275px;
+            margin: 20px 0 0 20px;
+            position: relative;
+            height: 300px;
+            clear: both;
+            padding-bottom: 25px;
+        }
+
+        .trand-content ul {
+            overflow: hidden;
+            list-style-type: none;
+        }
+
+        .trand-content li {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .trandlist-container ul{
+            margin: 0;
+            padding: 0;
+        }
+
+        .pop-num {
+            width: 13px;
+            height: 13px;
+            margin-right: 9px;
+            border: 1px solid #e0e0e0;
+            font-size: 11px;
+            color: #666666;
+            text-align: center;
+            line-height: 13px;
+            display: inline-block;
+        }
+
+        .pop-text {
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .arrow {
+            margin-left: 5px;
+            font-size: 11px;
+            color: #666;
+            text-align: left;
+            display: block;
+            overflow: hidden;
+            float: right;
+            width: 40px;
+        }
+
+        .trand-content a {
+            width: 32%;
+            padding-bottom: 5px;
+            padding-top: 5px;
+            float: left;
+            background-color: #fff;
+            border: 1px solid #dfdfdf;
+            color: #333;
+            font-family: "맑은고딕", "Malgun Gothic", "나눔고딕", "NanumGothic", "돋움", Dotum, Helvetica, Sans-serif;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .trandlist-container {
+            width: 100%;
+            line-height: 23px;
+        }
+
+        .trandlist-container ul {
+            list-style-type: none;
         }
 
         .naverEngine {
             padding: 50px 20px 100px;
         }
 
-        .header {
-            margin: 0 0 55px;
-        }
 
         .title {
             font-size: 36px;
@@ -312,7 +396,6 @@
             margin-bottom: 20px;
             margin-top: 10px;
             align-items: center;
-            justify-content: space-between;
             display: flex;
         }
 
@@ -321,16 +404,37 @@
             color: #111;
             font-weight: 600;
             line-height: 1.3;
+            padding:0;
+            margin:0 12px 0 0;
+            cursor: pointer;
+        }
+
+        .data-page{
+            font-size: 25px;
+            color: #111;
+            font-weight: 600;
+            line-height: 1.3;
             margin: 0;
             padding: 0;
+            cursor: pointer;
+        }
+
+        .selected{
+            color: #19ce60;
         }
 
         .sort {
             display: flex;
             align-items: center;
+            justify-content: right;
+            width: 100%;
             text-decoration: none;
             color: #333;
             background-color: transparent;
+        }
+
+        .selected{
+
         }
 
         .sort.active {
@@ -506,15 +610,15 @@
             naver.style.color = "#19ce60";
             naver.style.fontWeight = "400";
 
+            changeDesan();
+
             flatpickr("#startDate", {
                 "dateFormat": "Y-m-d",
-                minDate: "today",
                 "allowInput": true,
             });
 
             flatpickr("#endDate", {
                 "dateFormat": "Y-m-d",
-                minDate: "today",
                 "allowInput": true,
             });
         }
@@ -716,12 +820,10 @@
             let url = `${origin}?query=${searchtextNaver.value}&display=100&gubun=${naversearchFiled.value}`;
             let response = await fetch(url, { method: 'POST', })
             let result = await response.json();
-         
+            console.log(result);
 
             document.getElementById('naver-word').textContent = searchtextNaver.value;
             document.getElementById('naver-count').textContent = `${result.total}건`;
-
-
 
             let datalist = document.querySelector('#naver-list');
             datalist.innerHTML = '';
@@ -777,10 +879,56 @@
             return newstr;
         }
 
+        async function day(range){
+
+            const origin = 'https://211.56.6.134:8443/search/searchTrans.jsp';
+            let url = `${origin}?target=popword&range=${range}&collection=_ALL_`;
+            let response = await fetch(url, { method: 'POST', })
+            let result = await response.json();
+            console.log(result);
+            console.log(result.Data.Query);
+            console.log(result.Data.Query.length);
+
+            trandlistcontainer = document.getElementById('trandlist-container');
+
+            document.getElementById('trandlist-container').innerHTML="";
+            if(!result.Data.Query.length) {
+                trandlistcontainer.innerHTML="결과가 없습니다";
+                trandlistcontainer.style.fontSize="13px";
+                return;
+            }
+            for (let i = 0; i < result.Data.Query.length; i++) {
+                let ul = document.createElement('ul');
+                let li = document.createElement('li');
+                let num = document.createElement('span');
+                let text = document.createElement('span');
+                let arrow = document.createElement('span');
+
+                num.textContent=i+1;
+                text.textContent=result.Data.Query[i].content;
+
+                arrow.textContent="new";
+
+                num.className="pop-num";
+                text.className="pop-text";
+                arrow.className="arrow";
+
+                li.appendChild(num);
+                li.appendChild(text);
+                li.appendChild(arrow);
+                ul.appendChild(li);
+                trandlistcontainer.appendChild(ul);
+
+                
+            }
+
+        }
+
 
         //네이버
         function changeNaver() {
             document.getElementById('desan').style.display = "none";
+            document.getElementById('trand-container').style.display = "none";
             document.getElementById('naverEngine').style.display = "block";
 
             let data = document.getElementById('data');
@@ -793,6 +941,7 @@
 
         function changeDesan() {
             document.getElementById('desan').style.display = "block";
+            document.getElementById('trand-container').style.display = "block";
             document.getElementById('naverEngine').style.display = "none";
 
             let data = document.getElementById('data');
@@ -812,6 +961,44 @@
 
     <span id="data" class="data" onclick="changeDesan()">데이터 산업진흥원</span>
     <span id="naver" class="naver" onclick="changeNaver()">네이버검색</span>
+
+
+    <div id="trand-container" class="trand-container">
+        <div class="trand-content">
+            <h3>인기 검색어</h3>
+            <ul>
+                <li>
+                    <a onclick="day('D')" href="#">일간</a>
+                    <a onclick="day('W')" href="#">주간</a>
+                    <a onclick="day('M')" href="#">월간</a>
+                </li>
+            </ul>
+            <div id="trandlist-container" class="trandlist-container">
+                <ul>
+                    <li>
+                        <span class="pop-num">1</span>
+                        <span class="pop-text">재난지원금</span>
+                        <span class="arrow">new</span>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <span class="pop-num">1</span>
+                        <span class="pop-text">재난지원금</span>
+                        <span class="arrow">new</span>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <span class="pop-num">1</span>
+                        <span class="pop-text">재난지원금</span>
+                        <span class="arrow">new</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
 
     <div style="display: none;" class="all" id="desan">
         <div class="header">
@@ -868,7 +1055,8 @@
         <div class="result">
             <div class="list">
                 <div class="div_title">
-                    <p class="data-title">게시판</p>
+                    <p class="data-title selected">게시판</p>
+                    <p class="data-page">페이지</p>
                     <p class="sort" id="sort" onclick="search(this)">날짜정렬(최신순)</p>
                 </div>
 
